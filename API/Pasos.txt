@@ -1,0 +1,7 @@
+1- npm init => inicializa el proyecto con node
+2- npm install express --save => instalar express (libreria de node para poder crear la API facilmente)
+3- install body-parser
+4- install morgan  // muestra en consola lo que pasa con la API
+5- install nodemon  // Iniciar el servidor- monitor de node
+6- importar EXPRESS => express.use(path,callback) => carga los controladores o las onfiguraciones solicitadas
+                    => express.METHOD(path,callback) => enruta una solicitud HTTP (GET,PUT,POST,DELETE)
