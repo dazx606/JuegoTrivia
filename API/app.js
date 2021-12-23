@@ -36,7 +36,7 @@ database.connect()
     .then(function(){
         app.listen(port,function(){
             console.log("API ejecutandoce en el puerto " + port);
-            database.getConnection();
+            //console.log(database.getConnection()); 
         })
     })
     .catch(function(error){

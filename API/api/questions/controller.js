@@ -1,5 +1,6 @@
 const express = require('express');
 const questionController = express.Router(); //usar rutas y poder importarlas
+const questionsSevice = require('./service');
 
 /*
     GET => get all questions
@@ -8,9 +9,12 @@ const questionController = express.Router(); //usar rutas y poder importarlas
     DELETE => delete questions
 */
 
-questionController.get("/getQuestions", function(req,res){
-    //catch the data and send it to the service
-    res.send("list of questions")
+questionController.get("/getQuestions", async function(req,res){
+    let questions = await questionsSevice.getQuestions();
+    res.send({
+        "message": "List of questions",
+        "data": questions
+    })
 })
 
 module.exports = questionController;
