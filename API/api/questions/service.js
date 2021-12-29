@@ -7,8 +7,9 @@ async function getQuestions(){
 
 async function createQuestion(newQuestion){
     let result = {};
-    if (newQuestion && newQuestion.questions[0] && newQuestion.questions[1] 
-        && newQuestion.questions[2] && newQuestion.questions[3] && typeof(newQuestion.level) == 'number' && newQuestion.genre ){
+    if (newQuestion && typeof(newQuestion.questions[0]) == 'object' && typeof(newQuestion.questions[1]) == 'object' 
+        && typeof(newQuestion.questions[2]) == 'object' && typeof(newQuestion.questions[3]) == 'object' 
+        && typeof(newQuestion.level) == 'number' && newQuestion.genre ){
             let createResult = await questionModel.createOne(newQuestion);
             if (createResult && createResult.acknowledged){
                 result.message = "Question has been created successful";
@@ -18,7 +19,16 @@ async function createQuestion(newQuestion){
                 result.message = "Error"
                 result.data = newQuestion
             }
+    
         return result
+    }
+    else{
+        result.message = "information is missing check and try again"
+        result.data = newQuestion
+
+        return result
+    }
 }
 
 module.exports.getQuestions = getQuestions;
+module.exports.createQuestion = createQuestion;

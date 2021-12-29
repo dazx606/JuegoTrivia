@@ -1,15 +1,27 @@
 import { useState } from "react";
 import { Row, Col, Button, Toast, Form, Container } from "react-bootstrap";
+import { useHistory } from "react-router";
+import FormComponent from "../components/FormComponent";
+import "../styles/style.css"
+
 
 
 export default function Home(){
 
     const [showA, setShowA] = useState(false);  
     const toggleShowA = () => setShowA(!showA);
+    let history = useHistory();
+
+    function handleClick(event){
+        event.preventDefault()
+        history.push("/Admin")
+
+    }
 
     return(
         <>  
-                        <Row>
+        <div class="bg">
+            <Row>
                 <Col md={6} className="mb-2 p-2 px-4">
                     <Button onClick={toggleShowA} className="mb-2" variant="secondary">
                     Login for admins
@@ -17,6 +29,7 @@ export default function Home(){
                     <Toast show={showA} onClose={toggleShowA}>
                     <Toast.Header>
                         <img
+                        id="toaster"
                         src="holder.js/20x20?text=%20"
                         className="rounded me-2"
                         alt=""
@@ -25,16 +38,10 @@ export default function Home(){
                         <small>only for admins</small>
                     </Toast.Header>
                     <Toast.Body>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="formGroupUser">
-                                <Form.Label>Admin Name</Form.Label>
-                                <Form.Control type="text" placeholder="Enter user name" />
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formGroupPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" placeholder="Password" />
-                            </Form.Group>
-                            <Button variant="secondary" type="Buttom">
+                        <Form> 
+                            <FormComponent title="Admin Name" id="formAdminName" type="text" options="mb-3"/>
+                            <FormComponent title="Password" id="formPassword" type="password" options="mb-3"/>
+                            <Button onClick={handleClick} variant="secondary" type="Buttom" >
                                 Submit
                             </Button>{' '}
                         </Form>
@@ -45,7 +52,7 @@ export default function Home(){
             <Row>
                 <Container className="p-3">
                     <Col xs={{ span: 6, offset: 3 }}>
-                        <Container className="p-5 bg-light rounded-3 border text-center">
+                        <Container className="p-5 bg-light rounded-3 text-center bg-opacity-50">
                         <h1 className="header">Let's Play</h1>
                         <Form>
                             <Form.Group className="mb-3" controlId="formGroupFirstName">
@@ -66,7 +73,7 @@ export default function Home(){
                     
                 </Container>
             </Row>
-    
+            </div>
             
         </>
         

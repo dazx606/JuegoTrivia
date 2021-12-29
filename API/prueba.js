@@ -1,1 +1,1 @@
-console.log(typeof(5))
+console.log(typeof({"hola":5}))

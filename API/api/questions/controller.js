@@ -17,5 +17,13 @@ questionController.get("/getQuestions", async function(req,res){
     })
 })
 
+questionController.post("/createQuestion", async function(req,res){
+    let question = req.body;
+    let result = await questionsSevice.createQuestion(question);
+
+    res.send(result)
+})
+
 module.exports = questionController;
+
 
