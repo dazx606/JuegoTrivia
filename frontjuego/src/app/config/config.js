@@ -1,1 +1,1 @@
-export const URL_API_PELICULAS = "http://localhost:3300/api";
+export const URL_API_GAME = "http://localhost:3100/api";

@@ -4,9 +4,9 @@ function FormComponent(props){
     return(
         
             
-                <Form.Group className={props.options} controlId={props.id}>
+                <Form.Group className={props.options} controlId={props.id} >
                     <Form.Label>{props.title}</Form.Label>
-                    <Form.Control type={props.type} placeholder={"Enter a " + props.title} />
+                    <Form.Control type={props.type} placeholder={"Enter a " + props.title} value={props.value} />
                 </Form.Group>
             
        

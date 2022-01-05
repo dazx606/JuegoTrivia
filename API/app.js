@@ -8,7 +8,11 @@ const questionController = require('./api/questions/controller');
 const userController = require('./api/users/controller')
 require('dotenv').config();
 const morgan = require('morgan');
-const database = require('./database/conection')
+const database = require('./database/conection');
+const cors = require('cors');
+const helmet = require('helmet');
+const compression = require('compression');
+
 
 /*
     INICIAR LA CONFIGURACION
@@ -19,6 +23,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true})); // convierte el formdata en json (datos de formularios)
 const port = process.env.PORT;
 app.use(morgan(process.env.MORGAN_MODE)); //muestra en consola las peticiones que se hacen a la api
+// app.use(cors()); de esta manera recibe todos los dominios
+app.use(cors(/*{origin:["www.misdominios"]}*/));
+app.use(helmet());
+app.use(compression());
+
 /*
     INICIALIZAR LAS RUTAS
  */
