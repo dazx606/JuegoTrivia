@@ -14,7 +14,18 @@ export default function Home(){
 
     function handleClick(event){
         event.preventDefault()
-        history.push("/Admin")
+        const {name} = event.target;
+        switch (name){
+            case 'admin': 
+                history.push("/Admin"); 
+            break;
+            case 'play': 
+                history.push("/Game"); 
+            break;
+            default: 
+            break;
+        }
+        
 
     }
 
@@ -41,7 +52,7 @@ export default function Home(){
                         <Form> 
                             <FormComponent title="Admin Name" id="formAdminName" type="text" options="mb-3"/>
                             <FormComponent title="Password" id="formPassword" type="password" options="mb-3"/>
-                            <Button onClick={handleClick} variant="secondary" type="Buttom" >
+                            <Button onClick={handleClick} variant="secondary" type="Buttom" name="admin" >
                                 Submit
                             </Button>{' '}
                         </Form>
@@ -63,7 +74,7 @@ export default function Home(){
                                 <Form.Label>Last Name</Form.Label>
                                 <Form.Control type="text" placeholder="Last name" />
                             </Form.Group>
-                            <Button variant="secondary" type="Buttom">
+                            <Button variant="secondary" type="Buttom" name="play" onClick={handleClick}>
                                 Play
                             </Button>{' '}
                           

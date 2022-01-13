@@ -105,3 +105,47 @@ export function deleteOne(id){
             console.log(error);
         })
 }
+
+export function updateQuestion(id, question){
+    const path = "/questions/updateQuestion/" + id;
+    const config = {
+        method : "PUT",
+        mode : "cors",
+        headers : {
+            "content-type":"application/json"
+        },
+        body: JSON.stringify(question)
+    }
+    return fetch(URL_API_GAME + path, config)
+        .then(function(response){
+            if(response.ok){
+                return response.json()
+            }
+            else{
+                return Promise.reject(response.statusText)
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+}
+
+export function getById(id){
+    const path = "/questions/getById/" + id;
+    const config = {
+        method : "GET",
+        mode : "cors",
+    }
+    return fetch(URL_API_GAME + path,config)
+        .then(function(response){
+            if(response.ok){
+                return response.json();
+            }
+            else{
+                return Promise.reject(response.statusText)
+            }
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+}

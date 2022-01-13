@@ -17,4 +17,19 @@ body, html {
     
     
   }
+.bg-color{
+  background: rgb(188,212,232);
+  background: linear-gradient(45deg, rgba(188,212,232,1) 0%, rgba(83,140,207,1) 100%);
+  font-family: Garamond, serif;
+  
+  height: 100vh;
+  
+    /* Center and scale the image nicely */
+  
+}
+
+.bg-color-container{
+  background: rgb(96,175,241);
+  background: linear-gradient(357deg, rgba(96,175,241,1) 0%, rgba(0,67,147,1) 100%);
+}
 
